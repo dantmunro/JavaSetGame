@@ -1,0 +1,30 @@
+CSE132 Cover Page for Lab 5a
+
+By submitting this assignment, you certify that you have read, 
+understood, and complied with the CSE 132 Collaboration Policy.
+
+Who worked on this lab?
+
+     Last Name           Last 3 Digits of student's ID
+
+1)	Munro					280
+2)	Sherman					867
+3)	Edwards					486
+4)	Woodson					434
+
+Tell us about your protocol:
+
+We followed the protocol given to us in the rubric, with a few additions.  Message type 19 (client to server) requests a hint (three extra
+cards dealt).  Message 20 (server to client) will approve the request for a hint, and deal three extra cards (the dealing will be handled through a 
+call of Message type 5), and Message 21 (server to client) will reject the request if three hints (making for a total of 21 cards on the field, reason 1)
+or if no cards are left in the deck (reason 2).
+
+
+If there is anything else we should know about your work on this assignment, 
+please explain here:
+
+1.  The constant MAX_PLAYERS in NetworkView represents the number of clients that must be started up before cards can be dealt to the field
+2.  Cards labeled "Ovals" are actually rectangles.
+3.  The "TIMEOUT" message pertaining to message type 18 is not being used for the game, but we coded the message in as an option 
+	for compatibility with other servers.
+4.  To test with multiple clients without a BindException, run one instance of ServerMain and multiple instance of ClientMain

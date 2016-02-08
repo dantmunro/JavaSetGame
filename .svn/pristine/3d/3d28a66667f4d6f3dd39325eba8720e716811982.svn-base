@@ -1,0 +1,15 @@
+Design Plans/Thoughts:
+
+Screen Layout:  3x4 card display by default, with cards oriented horizontally.
+User Options:  Card is clicked once to highlight, twice to de-highlight.  For a "hint", deal cards 3 at a time until 21 cards are reached.
+If someone finds and takes a set, the arrangement is reduced down to 12.
+Multi-Player:  Card selection is private to user (can't see opponent clicks)
+Server Functions:  Server deals cards on GUI to clients.  Whenever a winning pair is made, server removes/re-deals cards.  Gives score to clients,
+and determines whether a set is valid
+Client Functions:  Sends a signal to the server asking to evaluate its set.  Highlights and un-highlights cards.  As soon as 3 cards are 
+highlighted, a signal is automatically sent to the server.
+Client-to-Server Commands:  removeCardRequest() (Ask server to check the validity of its set), dealRequest()
+Server Responses:  removeCardRequest() returns true or false (depending on whether the set is legit); dealRequest() returns true or false 
+(depending on whether there are less than 21 cards on the table)
+Server Commands:  dealThreeCards(), removeCards() (once a set is created), updateScores(), newGame(), gameOver()
+Client Response:  newGame() returns true or false for each client; if more than two people want to play (i.e. return true), a new game is set up
